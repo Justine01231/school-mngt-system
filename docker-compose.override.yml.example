@@ -1,0 +1,26 @@
+# docker-compose.override.yml
+# =====================================================
+# This file overrides docker-compose.yml for LOCAL DEV.
+# It supplies the real secrets that docker-compose.yml
+# expects as environment variables.
+#
+# USAGE:
+#   1. Copy:  cp docker-compose.override.yml.example docker-compose.override.yml
+#   2. Fill in your real values below.
+#   3. Run:   docker compose up
+#
+# docker-compose merges this file automatically.
+# docker-compose.override.yml is GITIGNORED — safe to store real secrets here.
+# =====================================================
+
+services:
+  postgres:
+    environment:
+      POSTGRES_PASSWORD: "CHANGE_ME_STRONG_DB_PASSWORD"
+
+  api:
+    environment:
+      - DATABASE_URL=postgresql://postgres:CHANGE_ME_STRONG_DB_PASSWORD@postgres:5432/school_sys
+      - JWT_ACCESS_SECRET=REPLACE_WITH_STRONG_RANDOM_SECRET_MIN_32_CHARS
+      - JWT_REFRESH_SECRET=REPLACE_WITH_DIFFERENT_STRONG_RANDOM_SECRET_MIN_32_CHARS
+      - POSTGRES_PASSWORD=CHANGE_ME_STRONG_DB_PASSWORD

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Dark palette */
+  --bg-base:       #0f1117;
+  --bg-surface:    #161b27;
+  --bg-elevated:   #1c2333;
+  --bg-card:       #1e2640;
+
+  /* Sidebar */
+  --sidebar-bg:    #13182a;
+  --sidebar-width: 220px;
+
+  /* Accent – indigo/purple */
+  --accent:        #6c63ff;
+  --accent-dim:    rgba(108, 99, 255, 0.18);
+  --accent-hover:  #7b74ff;
+
+  /* Text */
+  --text-primary:  #e8eaf0;
+  --text-secondary:#8b93a8;
+  --text-muted:    #4e5568;
+
+  /* Border */
+  --border:        rgba(255, 255, 255, 0.07);
+
+  /* Status badges */
+  --badge-admin-bg:    rgba(108, 99, 255, 0.22);
+  --badge-admin-text:  #a09bff;
+  --badge-teacher-bg:  rgba(59, 130, 246, 0.20);
+  --badge-teacher-text:#60a5fa;
+  --badge-student-bg:  rgba(16, 185, 129, 0.18);
+  --badge-student-text:#34d399;
+  --badge-active-bg:   rgba(16, 185, 129, 0.18);
+  --badge-active-text: #34d399;
+  --badge-inactive-bg: rgba(100, 116, 139, 0.22);
+  --badge-inactive-text:#94a3b8;
+
+  /* Form */
+  --input-bg:      #1c2333;
+  --input-border:  rgba(255,255,255,0.10);
+  --input-focus:   var(--accent);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.30);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.45);
+
+  /* Scrollbar */
+  --scrollbar-thumb: #2a3048;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { height: 100%; }
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+}
+
+#root { height: 100%; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+
+/* Spinner animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.animate-spin { animation: spin 0.8s linear infinite; }
+
+/* Shared badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.badge-admin    { background: var(--badge-admin-bg);    color: var(--badge-admin-text); }
+.badge-teacher  { background: var(--badge-teacher-bg);  color: var(--badge-teacher-text); }
+.badge-student  { background: var(--badge-student-bg);  color: var(--badge-student-text); }
+.badge-active   { background: var(--badge-active-bg);   color: var(--badge-active-text); }
+.badge-inactive { background: var(--badge-inactive-bg); color: var(--badge-inactive-text); }
